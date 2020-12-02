@@ -1,0 +1,27 @@
+---
+- name: Clean Up Demo Installation for re-Demo
+  hosts: aix
+  gather_facts: no
+  vars:
+    rpms_to_remove:
+      - ica-certificates-2016.10.7-2.ppc
+      - curl-7.52.1-1.ppc
+      - db-4.8.24-3.ppc
+      - gdbm-1.8.3-5.ppc
+      - gettext-0.19.7-1.ppc
+      - glib2-2.14.6-2.ppc
+      - pysqlite-1.1.7-2.ppc
+      - python-2.7.10-1.ppc
+      - python-devel-2.7.10-1.ppc
+      - python-iniparse-0.4-1.noarch
+      - python-pycurl-7.19.3-1.ppc
+      - python-tools-2.7.10-1.ppc
+      - python-urlgrabber-3.10.1-1.noarch
+      - readline-6.1-2.ppc
+      - sqlite-3.15.2-1.ppc
+      - yum-3.4.3-7.noarch
+      - yum-metadata-parser-1.1.4-2.ppc
+
+  tasks:
+    - name: Remove RPM packages from AIX without YUM or Ansible
+      raw: "rpm -e {{ rpms_to_remove | join(' ') }}"

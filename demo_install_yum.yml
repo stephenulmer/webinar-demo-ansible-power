@@ -1,0 +1,16 @@
+---
+- name: "Install YUM for AIX"
+  hosts: aix
+  gather_facts: no
+
+  collections:
+    - ibm.power_aix
+
+  ## power_aix_bootstrap incorectly uses role vars for things the
+  ## user needs to change.
+  roles:
+    - name: power_aix_bootstrap
+      pkgtype: "yum"
+      download_dir: "./downloads"
+      target_dir: "/tmp/.ansible.cpdir"
+

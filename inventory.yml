@@ -1,0 +1,14 @@
+all:
+  hosts:
+    aix02:
+      ansible_host: 192.168.111.32
+    aix03:
+      ansible_host: 192.168.111.33
+  children:
+    aix:
+      hosts:
+        aix02:
+        aix03:
+        aix04:
+      vars:
+        ansible_user: root
