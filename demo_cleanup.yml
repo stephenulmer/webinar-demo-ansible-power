@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     rpms_to_remove:
-      - ica-certificates-2016.10.7-2.ppc
+      - ca-certificates-2016.10.7-2.ppc
       - curl-7.52.1-1.ppc
       - db-4.8.24-3.ppc
       - gdbm-1.8.3-5.ppc
